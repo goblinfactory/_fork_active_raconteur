@@ -149,6 +149,7 @@
     <Compile Include="TicTacToe\TicTacToeGame.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Bowling\ScoreCalculation.feature">
       <Generator>RaconteurSingleFileGenerator</Generator>
       <LastGenOutput>ScoreCalculation.runner.cs</LastGenOutput>

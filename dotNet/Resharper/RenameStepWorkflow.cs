@@ -4,13 +4,20 @@ using JetBrains.ProjectModel;
 using JetBrains.ReSharper.Refactorings.Rename;
 using JetBrains.Util;
 using Raconteur.Helpers;
+using JetBrains.Application;
+using JetBrains.ReSharper.Psi.Search;
 
 namespace Raconteur.Resharper
 {
     public class RenameStepWorkflow : RenameWorkflow
     {
-        public RenameStepWorkflow(ISolution Solution, string ActionId) 
-            : base(Solution, ActionId)
+        public RenameStepWorkflow(
+            IShellLocks locks, 
+            SearchDomainFactory searchDomainFactory, 
+            RenameRefactoringService renameRefactoringService, 
+            ISolution solution, 
+            string actionId) 
+            : base(locks, searchDomainFactory, renameRefactoringService, solution, actionId)
         {
         }
 

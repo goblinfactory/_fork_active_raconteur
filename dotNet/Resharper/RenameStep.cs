@@ -14,11 +14,15 @@ using JetBrains.ReSharper.Psi.Services;
 using JetBrains.ReSharper.Refactorings.Workflow;
 using JetBrains.TextControl;
 using JetBrains.Util;
+using JetBrains.ReSharper.Intentions.Extensibility;
+using JetBrains.ReSharper.Psi.Search;
+using JetBrains.ReSharper.Refactorings.Rename;
 
 namespace Raconteur.Resharper
 {
     [ContextAction(Group = "C#", Name = "Rename Step", Description = "do it", Priority = 15)]
-    public class RenameStep : BulbItemImpl, IContextAction
+    //public class RenameStep : BulbItemImpl, IContextAction
+    public class RenameStep : ContextActionBase, IContextAction
     {
         readonly ICSharpContextActionDataProvider Provider;
         
@@ -31,7 +35,7 @@ namespace Raconteur.Resharper
 
         IMethodDeclaration Method;
 
-        public bool IsAvailable(IUserDataHolder Cache)
+        public override bool IsAvailable(IUserDataHolder Cache)
         {
             Method = Provider.GetSelectedElement<IMethodDeclaration>(false, true);
  
@@ -69,11 +73,13 @@ namespace Raconteur.Resharper
 
         void ExecuteRenameStep()
         {
+            // JetBrains.ReSharper.Psi.IPsiServices.SearchDomainFactory            
             Lifetimes.Using(Lifetime => RefactoringActionUtil.ExecuteRefactoring
             (
-                Shell.Instance.Components.ActionManager().DataContexts.Create(Lifetime, Rules), 
-                new RenameStepWorkflow(Solution, null)
+                Shell.Instance.Components.ActionManager().DataContexts.CreateWithDataRules(Lifetime,Rules),
+                new RenameStepWorkflow(Solution.Locks, JetBrains.ReSharper.Psi.Search.SearchDomainFactory.Instance, RenameRefactoringService.Instance, this.Solution, null)
             ));
         }
+
     }
 }
