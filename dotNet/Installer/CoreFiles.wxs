@@ -10,7 +10,7 @@
 
     <DirectoryRef Id="INSTALLLOCATION">
       <Component Id="Comp_CoreFiles" Guid="e8c005c1-1263-4941-9a70-91d505ba01ff">
-        <File Name="LICENSE.txt" Source="$(var.SolutionDir)LICENSE.txt" />
+        <File Name="LICENSE.txt" Source="$(var.SolutionDir)../LICENSE.txt" />
         <File Name="FeatureIcon.ico" Source="$(var.SetupResourcesDir)Icon.ico" />
         <!-- File associations -->
         <ProgId Id="FeatureFile" Description="Feature File" Icon="FeatureIcon.ico">
