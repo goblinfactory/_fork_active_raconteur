@@ -1,4 +1,6 @@
-﻿Feature: Find 250 movies in IMdb
+﻿#ADH: wow, super brittle tests, really bad example. Should be moved to examples.
+
+Feature: Find 250 movies in IMdb
 	In order to find good movies I haven't watched
 	I need to look at the 250 vies in IMDb
 
@@ -24,4 +26,5 @@ Scenario: Scores of my favorite movies
 	[ Rank | Rating | Title        ]
 	|  5   | 8.9    | Pulp Fiction | 
 	| 22   | 8.7    | The Matrix   |
-	| 31   | 8.6    | Memento      | 
+	| 29   | 8.6    | Memento      | 
+	| 0	   | 0      | Kohl Glass best bits | 

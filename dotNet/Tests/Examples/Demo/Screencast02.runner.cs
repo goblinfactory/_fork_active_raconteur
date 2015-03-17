@@ -34,7 +34,7 @@ Content-Length: 267
 Content-Type: application/xml
 Date: Wed, 19 Nov 2008 21:48:10 GMT
 ");        
-            The_Header_should_have(200, 267, System.DateTime.Parse("11/19/2008"));
+            The_Header_should_have(200, 267, System.DateTime.Parse("2008/11/19"));
         }
         
         [TestMethod]
