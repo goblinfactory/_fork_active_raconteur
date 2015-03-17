@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Common;
 using FluentSpec;
@@ -8,6 +9,8 @@ using Raconteur.Parsers;
 
 namespace Specs
 {
+
+    [SetUpFixture]
     public class When_testing_Steps_with_Tables
     {
         static Feature Feature;
