@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Common;
 using FluentSpec;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Raconteur;
 using Raconteur.Compilers;
 using Raconteur.Helpers;
@@ -144,13 +144,13 @@ namespace Specs
         [TestFixture]
         public class The_arg_formatter
         {
-            [Row("234", "234")]
-            [Row("450.23", "450.23")]
-            [Row("02/08/1986", @"System.DateTime.Parse(""02/08/1986"")")]
-            [Row("true", "true")]
-            [Row("false", "false")]
-            [Row("null", "null")]
-            [Row("string", "\"string\"")]
+            [TestCase("234", "234")]
+            [TestCase("450.23", "450.23")]
+            [TestCase("02/08/1986", @"System.DateTime.Parse(""02/08/1986"")")]
+            [TestCase("true", "true")]
+            [TestCase("false", "false")]
+            [TestCase("null", "null")]
+            [TestCase("string", "\"string\"")]
             public void should_format_Args_by_type(string Arg, string Value)
             {
                 ArgFormatter.Format(Arg).ShouldBe(Value);

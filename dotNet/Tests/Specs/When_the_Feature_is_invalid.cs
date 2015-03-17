@@ -1,5 +1,5 @@
 using FluentSpec;
-using MbUnit.Framework;
+using NUnit.Framework;
 using NSubstitute;
 using Raconteur;
 using Raconteur.Helpers;

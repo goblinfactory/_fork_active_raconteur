@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Common;
 using FluentSpec;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 using Raconteur;
@@ -377,7 +377,7 @@ namespace Specs
         }
 
         [Test]
-        [MbUnit.Framework.ExpectedException(typeof(AssertFailedException))]
+        [NUnit.Framework.ExpectedException(typeof(AssertFailedException))]
         public void should_resolve_method_overloading_by_Arg_type()
         {
             typeof(string).IsArray.ShouldBeFalse();
@@ -508,20 +508,20 @@ namespace Specs
         }
 
         [Test]
-        [Row("default", typeof(object), "default")]
-        [Row("string", typeof(string), "\"string\"")]
-        [Row("multiline \r\n string", typeof(string), "\r\n@\"multiline \r\n string\"")]
-        [Row("1/1/77", typeof(DateTime), "System.DateTime.Parse(\"1/1/77\")")]
+        [TestCase("default", typeof(object), "default")]
+        [TestCase("string", typeof(string), "\"string\"")]
+        [TestCase("multiline \r\n string", typeof(string), "\r\n@\"multiline \r\n string\"")]
+        [TestCase("1/1/77", typeof(DateTime), "System.DateTime.Parse(\"1/1/77\")")]
         public void should_format_args_according_types(string Arg, Type Type, string ExpectedFormat)
         {
             ArgFormatter.Format(Arg, Type).ShouldBe(ExpectedFormat);
         }
         
         [Test]
-        [Row("UserName")]
-        [Row("username")]
-        [Row("User Name")]
-        [Row("user name")]
+        [TestCase("UserName")]
+        [TestCase("username")]
+        [TestCase("User Name")]
+        [TestCase("user name")]
         public void should_match_Header_to_ObjectArg_field(string UserName)
         {
             Feature = new Feature 

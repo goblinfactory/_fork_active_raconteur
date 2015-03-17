@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Common;
 using FluentSpec;
-using MbUnit.Framework;
+using NUnit.Framework;
 using NSubstitute;
 using Raconteur;
 using Raconteur.Generators.Steps;
@@ -198,9 +198,10 @@ namespace Specs
         static string StepDefinitions;
 
         [TestFixture]
+        [SetUpFixture]
         public class for_the_first_time 
         {
-            [FixtureSetUp]
+            [SetUp]
             public void SetUp()
             {
                 StepDefinitions = ObjectFactory.NewStepDefinitionsGenerator(Actors.Feature, null).Code;
@@ -220,9 +221,9 @@ namespace Specs
         }
 
         [TestFixture]
+        [SetUpFixture]
         public class with_existing_steps : BehaviorOf<StepDefinitionsGenerator>
         {
-            [FixtureSetUp]
             public void SetUp()
             {
                 var Feature = Actors.Feature;

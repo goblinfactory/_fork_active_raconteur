@@ -1,6 +1,6 @@
 using Common;
 using FluentSpec;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Raconteur;
 using Raconteur.Helpers;
 using Raconteur.IDE;
@@ -44,9 +44,9 @@ namespace Specs
         }
 
         [Test]
-        [Row("UserName")]
-        [Row("User Name")]
-        [Row("user name")]
+        [TestCase("UserName")]
+        [TestCase("User Name")]
+        [TestCase("user name")]
         public void should_resolve_Header_to_Fields(string UserName)
         {
             Step.Name = "Step_with_object";

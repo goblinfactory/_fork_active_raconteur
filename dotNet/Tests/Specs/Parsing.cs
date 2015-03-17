@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Common;
 using FluentSpec;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Raconteur;
 using Raconteur.Helpers;
 using Raconteur.Parsers;
@@ -13,13 +13,13 @@ namespace Specs
     {
         [Test]
 
-        [Row("One Scenario",
+        [TestCase("One Scenario",
             @"
                 Scenario: One
             ",
             0, "Scenario: One")]
 
-        [Row("Many single line Scenarios",
+        [TestCase("Many single line Scenarios",
             @"
                 Scenario: One
                 Scenario: Two
@@ -27,7 +27,7 @@ namespace Specs
             ",
             1, "Scenario: Two")]
 
-        [Row("Scenarios with tags",
+        [TestCase("Scenarios with tags",
             @"
                 Scenario: One
                 Scenario: Two
@@ -35,7 +35,7 @@ namespace Specs
             ",
             1, "Scenario: Two")]
 
-        [Row("Scenarios with tags",
+        [TestCase("Scenarios with tags",
             @"
                 Scenario: One
                     Step
@@ -81,33 +81,33 @@ namespace Specs
 
         [Test]
 
-        [Row("Simple Step", 0,
+        [TestCase("Simple Step", 0,
             @"
                 Step
             ",
             "Step")]
 
-        [Row("Repeated Step", 1,
+        [TestCase("Repeated Step", 1,
             @"
                 Step
                 Step
             ",
             "Step")]
 
-        [Row("Two Steps", 1,
+        [TestCase("Two Steps", 1,
             @"
                 one Step
                 another Step
             ",
             "another Step")]
 
-        [Row("Step with Args", 0,
+        [TestCase("Step with Args", 0,
             @"
                 ""Arg"" Step ""Arg"" 
             ",
             @"""Arg"" Step ""Arg""")]
 
-        [Row("Step with Multiline Args", 0,
+        [TestCase("Step with Multiline Args", 0,
             @"
                 A multiline step arg
                 ""
@@ -117,7 +117,7 @@ namespace Specs
             ",
             "A multiline step arg")]
 
-        [Row("Step with all kind of Args", 4,
+        [TestCase("Step with all kind of Args", 4,
             @"
                 ""
                     line 1

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Common;
 using FluentSpec;
-using MbUnit.Framework;
+using NUnit.Framework;
 using Raconteur;
 using Raconteur.Generators;
 using Raconteur.Helpers;

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Common;
-using MbUnit.Framework;
+using NUnit.Framework;
 using NSubstitute;
 using FluentSpec;
 using Raconteur;
@@ -147,27 +147,27 @@ namespace Specs
 
         [Test]
         
-        [Row("2 Args starting with Name", 
+        [TestCase("2 Args starting with Name", 
             @"Name with an ""Arg"" and another ""Arg""",
             @"new Name with an ""Arg"" and another ""Arg"" at the end",
             "new_Name_with_an__and_another__at_the_end", "Arg", "Arg")]
         
-        [Row("Arg at the end", 
+        [TestCase("Arg at the end", 
             @"Name with an ""Arg""", 
             @"new Name with an ""Arg""", 
             "new_Name_with_an", "Arg", null)]
         
-        [Row("Arg at the beginning",
+        [TestCase("Arg at the beginning",
             @"""Arg"" at beginning", 
             @"""Arg"" still at beginning", 
             "still_at_beginning", "Arg", null)]
 
-        [Row("Starting and ending with Args",
+        [TestCase("Starting and ending with Args",
             @"""Arg"" sandwich ""Arg""",
             @"""Arg"" still a sandwich ""Arg""", 
             "still_a_sandwich", "Arg", "Arg")]
 
-        [Row("Arg in the middle",
+        [TestCase("Arg in the middle",
             @"where the ""Arg"" is",
             @"the ""Arg"" is here", 
             "the__is_here", "Arg", null)]
