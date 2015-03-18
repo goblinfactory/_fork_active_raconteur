@@ -5,3 +5,5 @@ The documentation is at http://github.com/limadelic/raconteur/wiki
 
 == 
 Copyright (c) 2010-11 Limadelic.
+
+Update: 18.03.2015 - (Alan Hemmings) - You can download version 0.4 of Raconteur from the Racoteur website (link abover) which is compatible with Visual studio 2008. If you are using VS2008 then that still works brilliantly, go get it now. This fork is an experiment to bring Raconteur up to date and working with Visual Studio 2013 and Resharper 9. The objective is to merge this fork with the main branch, so this is currently my sandbox to play in, until I have something solid that works, then will plan to incorporate it, or something similar and bring out a new release.
