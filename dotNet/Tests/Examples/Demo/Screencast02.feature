@@ -1,6 +1,6 @@
 ﻿Feature: Demo for version 0.2
 
-Scenario: Retweet
+Scenario: Retweet2
 
   Given the tweet "check out Raconteur!" by "limadelic"
   When I retweet it

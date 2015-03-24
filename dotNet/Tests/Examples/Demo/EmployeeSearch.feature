@@ -1,4 +1,4 @@
-﻿Feature: Employee Search
+﻿Feature: Employee Search2
 	In order to put a face to a name
 	As a fellow Employee
 	I want to find coworkes by name and see their info

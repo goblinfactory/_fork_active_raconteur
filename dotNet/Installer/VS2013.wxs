@@ -5,14 +5,14 @@
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
-    <ComponentGroup Id="CompGroup_VS2010">
+    <ComponentGroup Id="CompGroup_VS2013">
       <ComponentRef Id="Comp_Integration_Core" />
-      <ComponentRef Id="Comp_VS2010ItemTemplates_CSharp" />
-      <ComponentRef Id="Comp_Vs2010Integration_Extensions" />
-      <ComponentRef Id="Comp_VS2010Registry" />
+      <ComponentRef Id="Comp_VS2013ItemTemplates_CSharp" />
+      <ComponentRef Id="Comp_Vs2013Integration_Extensions" />
+      <ComponentRef Id="Comp_VS2013Registry" />
     </ComponentGroup>
 
-    <!-- new VS2010 integration components -->
+    <!-- new VS2012 integration components -->
     <DirectoryRef Id="INSTALLLOCATION">
       <Component Id="Comp_Integration_Core" Guid="122C987F-37FF-4383-AF8D-81325A218F31">
         <File Id="Icon.ico" Name="Icon.ico" Source="$(var.SetupResourcesDir)icon.ico" />
@@ -20,18 +20,21 @@
         <File Id="Raconteur.IDEIntegration.dll" Name="Raconteur.IDEIntegration.dll" Source="$(var.BinDir)Raconteur.IDEIntegration.dll" />
         <File Id="extension.vsixmanifest" Name="extension.vsixmanifest" Source="$(var.BinDir)extension.vsixmanifest" />
       </Component>
-
-      <Directory Id="Dir_VS2010_ROOT_FOLDER" Name="VS2010_Root">
-        <Directory Id="Dir_VS2010_Common7" Name="Common7">
-          <Directory Id="Dir_VS2010_IDE" Name="IDE">
-            <Directory Id="Dir_VS2010_Extensions" Name="Extensions">
-              <Directory Id="Dir_VS2010_Extensions_Raconteur" Name="Raconteur">
-                <Component Id="Comp_Vs2010Integration_Extensions" Guid="2efc42cc-1424-412f-b00b-e113b603e604">
-                  <Shortcut Id="Shortcut_extension.vsixmanifest_VS2010"
+      <!-- 
+        ADH: to do? : Should we update the directories below to use VS2013_EXTENSIONS_DIR as shown here
+        http://wixtoolset.org/documentation/manual/v3/customactions/wixvsextension.html#vs2013properties
+      -->
+      <Directory Id="Dir_VS2013_ROOT_FOLDER" Name="VS2013_Root">
+        <Directory Id="Dir_VS2013_Common7" Name="Common7">
+          <Directory Id="Dir_VS2013_IDE" Name="IDE">
+            <Directory Id="Dir_VS2013_Extensions" Name="Extensions">
+              <Directory Id="Dir_VS2013_Extensions_Raconteur" Name="Raconteur">
+                <Component Id="Comp_Vs2013Integration_Extensions" Guid="2efc42cc-1424-412f-b00b-e113b603e604">
+                  <Shortcut Id="Shortcut_extension.vsixmanifest_VS2013"
                             Name="extension.vsixmanifest"
                             Target="[INSTALLLOCATION]extension.vsixmanifest"
                             WorkingDirectory="INSTALLLOCATION"/>
-                  <RemoveFolder Id="Dir_VS2010_Extensions_Raconteur" On="uninstall"/>
+                  <RemoveFolder Id="Dir_VS2013_Extensions_Raconteur" On="uninstall"/>
                 </Component>
               </Directory>
             </Directory>
@@ -40,37 +43,37 @@
       </Directory>
     </DirectoryRef>
 
-    <PropertyRef Id='VS2010_ROOT_FOLDER'/>
-    <SetDirectory Id="Dir_VS2010_ROOT_FOLDER" Value="[VS2010_ROOT_FOLDER]" Sequence="both" />     
+    <PropertyRef Id='VS2013_ROOT_FOLDER'/>
+    <SetDirectory Id="Dir_VS2013_ROOT_FOLDER" Value="[VS2013_ROOT_FOLDER]" Sequence="both" />     
     
     <!-- project/item templates -->
 
     <DirectoryRef Id="INSTALLLOCATION">
-      <Directory Id="DIR_VS2010_PROJECTTEMPLATES" Name="VS2010_ProjectTemplates">
+      <Directory Id="DIR_VS2013_PROJECTTEMPLATES" Name="VS2013_ProjectTemplates">
         <!--project templates will come here-->
       </Directory>
 
-      <Directory Id="Dir_VS2010_ItemTemplates" Name="VS2010_ItemTemplates">
-        <Directory Id="Dir_VS2010_ItemTemplates_CSharp" Name="CSharp" FileSource="$(var.BinDir)">
-          <Component Id="Comp_VS2010ItemTemplates_CSharp" Guid="df3eaf56-fb0c-4f62-8586-5ec60355456d">
-            <File Id="File_RaconteurFeature.zip_VS2010" Name="RaconteurFeature.zip" />
+      <Directory Id="Dir_VS2013_ItemTemplates" Name="VS2013_ItemTemplates">
+        <Directory Id="Dir_VS2013_ItemTemplates_CSharp" Name="CSharp" FileSource="$(var.BinDir)">
+          <Component Id="Comp_VS2013ItemTemplates_CSharp" Guid="df3eaf56-fb0c-4f62-8586-5ec60355456d">
+            <File Id="File_RaconteurFeature.zip_VS2013" Name="RaconteurFeature.zip" />
           </Component>
         </Directory>
       </Directory>
     </DirectoryRef>
 
-    <PropertyRef Id='VS2010_PROJECTTEMPLATES_DIR'/>
-    <SetDirectory Id="DIR_VS2010_PROJECTTEMPLATES" Value="[VS2010_PROJECTTEMPLATES_DIR]" Sequence="both" />
+    <PropertyRef Id='VS2013_PROJECTTEMPLATES_DIR'/>
+    <SetDirectory Id="DIR_VS2013_PROJECTTEMPLATES" Value="[VS2013_PROJECTTEMPLATES_DIR]" Sequence="both" />
 
-    <PropertyRef Id='VS2010_ITEMTEMPLATES_DIR'/>
-    <SetDirectory Id="Dir_VS2010_ItemTemplates" Value="[VS2010_ITEMTEMPLATES_DIR]" Sequence="both" />
+    <PropertyRef Id='VS2013_ITEMTEMPLATES_DIR'/>
+    <SetDirectory Id="Dir_VS2013_ItemTemplates" Value="[VS2013_ITEMTEMPLATES_DIR]" Sequence="both" />
 
     <!-- registry -->
 
     <DirectoryRef Id="INSTALLLOCATION">
-      <Component Id="Comp_VS2010Registry" Guid="05740fb0-16ea-4106-b2eb-45e629ea5a93">
+      <Component Id="Comp_VS2013Registry" Guid="05740fb0-16ea-4106-b2eb-45e629ea5a93">
 
-        <RegistryKey Root="HKLM" Key="$(var.Vs2010RegPath)\CLSID\$(var.CLSID_RaconteurSingleFileGenerator)" Action="createAndRemoveOnUninstall">
+        <RegistryKey Root="HKLM" Key="$(var.Vs2013RegPath)\CLSID\$(var.CLSID_RaconteurSingleFileGenerator)" Action="createAndRemoveOnUninstall">
           <RegistryValue Value="Raconteur.IDEIntegration.RaconteurSingleFileGenerator" Type="string" />
           <RegistryValue Name="Class" Value="Raconteur.IDEIntegration.RaconteurSingleFileGenerator" Type="string" />
           <RegistryValue Name="CodeBase" Value="[INSTALLLOCATION]Raconteur.IDEIntegration.dll" Type="string" />
@@ -79,10 +82,10 @@
         </RegistryKey>
 
         <!-- C# registration -->
-        <RegistryKey Root="HKLM" Key="$(var.Vs2010RegPath)\Generators\$(var.CSharpLangId)\.feature" Action="createAndRemoveOnUninstall">
+        <RegistryKey Root="HKLM" Key="$(var.Vs2013RegPath)\Generators\$(var.CSharpLangId)\.feature" Action="createAndRemoveOnUninstall">
           <RegistryValue Value="RaconteurSingleFileGenerator" Type="string" />
         </RegistryKey>
-        <RegistryKey Root="HKLM" Key="$(var.Vs2010RegPath)\Generators\$(var.CSharpLangId)\RaconteurSingleFileGenerator" Action="createAndRemoveOnUninstall">
+        <RegistryKey Root="HKLM" Key="$(var.Vs2013RegPath)\Generators\$(var.CSharpLangId)\RaconteurSingleFileGenerator" Action="createAndRemoveOnUninstall">
           <RegistryValue Value="C# Raconteur Generator" Type="string" />
           <RegistryValue Name="CLSID" Value="$(var.CLSID_RaconteurSingleFileGenerator)" Type="string" />
           <RegistryValue Name="GeneratesDesignTimeSource" Value="1" Type="integer" />

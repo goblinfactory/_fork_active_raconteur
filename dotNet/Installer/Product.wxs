@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?define ProductShortName = "Raconteur" ?>
-<?define ProductVersion = "0.4.0.1" ?>
-<?define ProductVersionText = "0.4.0.1" ?>
+<?define ProductShortName = "Raconteur (hacked for vs2013)" ?>
+<?define ProductVersion = "0.5.0.1" ?>
+<?define ProductVersionText = "0.5.0.1" ?>
 <?define ProductUrl = "http://raconteur.github.com" ?>
-<?define Manufacturer = "Limadelic" ?>
+<?define Manufacturer = "Limadelic and contributors" ?>
 <?define UpgradeCode = "92df6b9f-8f85-4af8-bf63-d7b72650c323" ?>
 
 <?include Common.wxi?>
@@ -34,7 +34,7 @@
 		<Property Id="ARPURLINFOABOUT" Value="$(var.ProductUrl)" />
 		<Property Id="ARPURLUPDATEINFO" Value="$(var.ProductUrl)" />
 
-		<PropertyRef Id="VS2010DEVENV" />
+		<PropertyRef Id="VS2013DEVENV" />
 
 		<!-- Launch conditions -->
 		<Condition Message="An administrator must approve or install [ProductName]."> Privileged </Condition>
@@ -68,16 +68,16 @@
         
 			</Feature>
 
-			<Feature Id="Feature_VS2010" 
-               Level="1" 
+      <Feature Id="Feature_VS2013"
+               Level="1"
                AllowAdvertise="no"
-							 Title="Visual Studio 2010 Integration" 
-               Description="Visual Studio 2010 Integration">
-        
-				<Condition Level="0"> NOT VS2010DEVENV </Condition>
-				<ComponentGroupRef Id="CompGroup_VS2010" />
-        
-			</Feature>
+							 Title="Visual Studio 2013 Integration"
+               Description="Visual Studio 2013 Integration">
+
+        <Condition Level="0"> NOT VS2013DEVENV </Condition>
+        <ComponentGroupRef Id="CompGroup_VS2013" />
+
+      </Feature>
 
       <Feature Id="Resharper_Plugin"
                Level="1"
@@ -92,7 +92,7 @@
     </Feature>
 
 		<!-- Custom actions -->
-		<CustomActionRef Id="VS2010InstallVSTemplates" />
+		<CustomActionRef Id="VS2013InstallVSTemplates" />
 
 		<!-- icons -->
 		<Icon Id="InstallIcon.ico" SourceFile="$(var.SetupResourcesDir)Icon.ico"/>

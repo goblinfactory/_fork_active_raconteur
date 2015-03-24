@@ -25,6 +25,9 @@ def deploy_resharper_plugin
 end
 
 task :default do
-  deploy_raconteur
-  deploy_resharper_plugin
+	puts "deploying raconteur"
+	deploy_raconteur
+	puts "deploying resharper plugin"
+	deploy_resharper_plugin
+	puts "done."
 end

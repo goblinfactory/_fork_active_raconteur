@@ -22,8 +22,8 @@
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="VS2013.wxs" />
     <Compile Include="Resharper.wxs" />
-    <Compile Include="VS2010.wxs" />
     <Compile Include="CoreFiles.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>

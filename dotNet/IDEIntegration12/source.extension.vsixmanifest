@@ -2,7 +2,7 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
     <Identity Id="IDEIntegration12..6bc6fcfe-1365-4b6f-8260-32a3db86f35c" Version="0.5.0.1" Language="en-US" Publisher="Limadelic and contributors" />
-    <DisplayName>Raconteur</DisplayName>
+    <DisplayName>IDEIntegration12</DisplayName>
     <Description xml:space="preserve">for Devs and Testers</Description>
     <MoreInfo>http://github.com/limadelic/raconteur</MoreInfo>
     <GettingStartedGuide>http://github.com/limadelic/raconteur</GettingStartedGuide>

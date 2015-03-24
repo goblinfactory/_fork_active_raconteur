@@ -2,8 +2,6 @@
 <Include>
   <?define SetupResourcesDir = "$(var.SolutionDir)Installer\Resources\" ?>
   <?define BinDir = "$(var.SolutionDir)bin\" ?>
-
-  <?define Vs2010RegPath = "Software\Microsoft\VisualStudio\10.0" ?>
-  
+  <?define Vs2013RegPath = "Software\Microsoft\VisualStudio\12.0" ?>
   <?define CSharpLangId = "{FAE04EC1-301F-11D3-BF4B-00C04F79EFBC}" ?>
 </Include>
