@@ -3,7 +3,12 @@
 The main website is at http://raconteur.github.com
 The documentation is at http://github.com/limadelic/raconteur/wiki
 
-== 
-Copyright (c) 2010-11 Limadelic.
+== current status
 
 Update: 18.03.2015 - (Alan Hemmings) - You can download version 0.4 of Raconteur from the Racoteur website (link above) which is compatible with Visual studio 2008. If you are using VS2008 then that still works brilliantly, go get it now. This fork is an experiment to bring Raconteur up to date and working with Visual Studio 2013 and Resharper 9. The objective is to merge this fork with the main branch, so this is currently my sandbox to play in until I have something solid that works, then will plan to incorporate this or similar in the main branch on official Raconteur github site (pull request) and work on bringing out a new release, installer + nuget package for fluentspec etc. I'm also investigating AppVeyor CI/CD for both projects.
+
+## Update : 14 Feb 2017 - thoughts
+
+Building Visual studio 2017 extensions has come a long way since 2013, so have started looking at a complete re-write. Also, rather than just a plain re-write we need to examine the current workflows that developers are using, for example, instead of a port, I'm seriously considering writing a VSCode - Elektron plugin. 
+
+Racounteur Copyright (c) 2010-11 Limadelic.
